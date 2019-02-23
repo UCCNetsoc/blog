@@ -17,19 +17,20 @@ paginate        = 6
   googleAnalytics = ""
   customCSS = []
   RSSLink = ""
+  hjsStyle = "default"
 
   twitterName = "uccnetsoc"
   fbName = "NetsocUCC"
   githubName = "UCCNetworkingSociety"
 
   logo = "img/netsoc.png"
-  orgName = "UCCNetsoc"
+  orgName = "UCC Netsoc"
   orgWebsite = "https://www.netsoc.co/"
   orgDescription = "Here is a description placeholder for your org"
 
   author = "Netsoc"
-  authorAvatar = "netsoc_black.jpg"
-  authorLocation = "Bandung, ID"
+  authorAvatar = "img/netsoc_black.jpg"
+  authorLocation = "Cork, IE"
   authorWebsite = "https://www.netsoc.co/"
   authorDescription = "UCC Networking and Technology Society"
 
@@ -60,3 +61,8 @@ paginate        = 6
   name = "Wiki"
   url = "https://bigbertha.netsoc.co/wiki/index.php/Main_Page"
   weight = 95
+
+[[menu.main]]
+  name = "Archive"
+  url = "/tags/archive/"
+  weight = 70

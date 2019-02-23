@@ -1,12 +1,12 @@
 ---
-title: "Building Netsoc Admin Part 1"
+title: "Building Netsoc Admin 1 Part 1"
 date: 2018-12-01T15:43:59Z
 draft: false
-tags: ["dev"]
+tags: ["dev", "archive"]
 author: Evan Smith
 ---
 
-# Building Netsoc Admin (#1) – Development Tools
+# Building Netsoc Admin 1.0 (#1) – Development Tools
 
 ### Introduction
 
@@ -26,7 +26,7 @@ Vagrant is a virtualisation manager for VirtualBox. It creates easy-to-modify vi
 
 First thing’s first though, I’m going to be running my project off the IP `172.22.22.25`. `172.16.0.0/12` is a private range of IP addresses so there should be no issue in interfering with any normal traffic we’d be using our machine for. As such, I create an entry in my hosts file (`/etc/hosts` for Mac and Linux) of the form:
 
-```console
+```nginx
 172.22.22.25 netsocadmin.dev
 ```
 
@@ -60,21 +60,21 @@ Vagrant.configure(2) do |config|
   # Sync the containing folder to the web directory of the VM
   #   The sync will persist as you edit files, you won't have
   #   to destroy and re-up the VM each time you make a change
-  #   
+  #
   config.vm.synced_folder "./", "/var/www", :owner=&gt; 'www-data', :group=&gt;'www-data'
   config.vm.synced_folder "./public", "/var/www/html", :owner=&gt; 'www-data', :group=&gt;'www-data'
 
   config.vm.provision "shell", inline: &lt;&lt;-SHELL
 
-  	sudo apt-get update 
-  	sudo apt-get install -y php5-ldap
-  	sudo service apache2 restart
+    sudo apt-get update
+    sudo apt-get install -y php5-ldap
+    sudo service apache2 restart
 
     # Create our database and give root all permissions
     mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS #{project_name};"
     mysql -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root';"
     sudo service mysql restart
-    
+
     #Create swap space for composer's operations
     sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
     sudo /sbin/mkswap /var/swap.1
@@ -88,6 +88,7 @@ Vagrant.configure(2) do |config|
   SHELL
 end
 ```
+
 When that’s all setup, it’s time to launch the virtual machine and get the server running.
 
 * To launch a server, use `vagrant up`.
@@ -102,7 +103,7 @@ Docker is a “container” manager. Containers are essentially a box that wrap 
 
 In the case of this project, we needed to be able to test with an LDAP server. For this, the best option was running the LDAP instance from a docker container so we weren’t messing with in-production systems and could fiddle and fool all we wanted. (Just a small note: I’m omitting the fact that I used a backup of our current LDAP database and mounted them as volumes to the following docker container. This was only necessary because we had data already and not working from a blank system). To startup our docker container, I used the following:
 
-```console	
+```nginx
 docker run -p 389:389 --name ldap_server -e LDAP_DOMAIN="netsoc.co" -e LDAP_ORGANISATION="UCC Netsoc" -e LDAP_ADMIN_PASSWORD="password" -d osixia/openldap
 ```
 
@@ -112,13 +113,13 @@ Laravel is a PHP MVC Framework I personally like to use because of its integrati
 
 Laravel uses Composer so once that’s installed, I can create a blank project to work from.
 
-```console
+```nginx
 laravel new blog
 ```
-	
+
 We’ll also need some basic scaffolding for the user registration, so I’m also going to run
 
-```console
+```nginx
 php artisan make:auth
 ```
 
@@ -156,33 +157,33 @@ All it requires is the below gulpfile to work:
 var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
-	// Mix all of our javascript and less files
+    // Mix all of our javascript and less files
     mix.less('app.less');
     mix.scriptsIn("resources/assets/js/app", "public/js/app.js");
     mix.scriptsIn("resources/assets/js/wordpress", "public/js/wordpress.js");
 });
 
-// This is for syncing the browser 
+// This is for syncing the browser
 require('laravel-elixir-browser-sync');
 
 // Any time a file is changed in the below folders,
 // reload the browser window
 elixir(function(mix) {
-	mix.browserSync([
-	    'public/**/*',
-	    'resources/**/*'
-		], {
-		proxy: 'netsocadmin.dev',
-		reloadDelay: 500
-	});
+    mix.browserSync([
+        'public/**/*',
+        'resources/**/*'
+        ], {
+        proxy: 'netsocadmin.dev',
+        reloadDelay: 500
+    });
 });
 ```
-	
+
 ### 8) Github (Version Control)
 
 Version control is, arguably, the most important part of this entire workflow. Source/Version control means that there’s a clear backup of everything I do as well as giving other developers an insight into my thought process when investigating files later. It’s amazing for collaborating with many people at the same time and still maintaining usable code. Github specifically also offers us a single place to distribute our code and allow people to submit issues/suggestions (which you should totally do)
 
-### There are many like it but this one is mine.
+### There are many like it but this one is mine
 
 I hope you’ve learned something from all of the above, even if it’s just a quirky “huh, I should try that”. Workflows differ greatly for different people and different languages and frameworks (for instance, python’s Django-ers probably won’t use vagrant to server their code) but this is what works for me and it gives me 3 main benefits:
 
@@ -193,4 +194,3 @@ I hope you’ve learned something from all of the above, even if it’s just a q
 ### What are some things you’d like to incorporate in your workflow?
 
 I’ve gazed longingly at unit-tests for so very long but have yet to cross the nightclub and ask for a dance. I understand the benefits of writing and adhering to unit tests as you develop but unfortunately my current rate at which I go from development to production is just too quick and small-time for me to slow things down with proper unit-testing but, I hope to change my spots some day and take on that 4th benefit: guaranteed code quality.
-
