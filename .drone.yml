@@ -1,0 +1,22 @@
+kind: pipeline
+name: default
+
+steps:
+- name: deploy
+  image: appleboy/drone-ssh
+  host: wiki.netsoc.co
+  username:
+    from_secret: ssh_username
+  password:
+    from_secret: ssh_password
+  port: 22
+  script:
+    - cd /var/www/blog.netsoc.co
+    - git fetch
+    - get reset --hard origin/master
+    - hugo build
+  when:
+    event: 
+      - push
+    branch: 
+      - master   

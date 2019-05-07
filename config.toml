@@ -59,7 +59,7 @@ paginate        = 6
 
 [[menu.main]]
   name = "Wiki"
-  url = "https://bigbertha.netsoc.co/wiki/index.php/Main_Page"
+  url = "http://wiki.netsoc.co"
   weight = 95
 
 [[menu.main]]
