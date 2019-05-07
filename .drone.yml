@@ -4,19 +4,42 @@ name: default
 steps:
 - name: deploy
   image: appleboy/drone-ssh
-  host: wiki.netsoc.co
-  username:
-    from_secret: ssh_username
-  password:
-    from_secret: ssh_password
-  port: 22
-  script:
-    - cd /var/www/blog.netsoc.co
-    - git fetch
-    - get reset --hard origin/master
-    - hugo build
+  settings:
+    host: wiki.netsoc.co
+    username:
+      from_secret: ssh_username
+    password:
+      from_secret: ssh_password
+    port: 22
+    script:
+      - cd /var/www/blog.netsoc.co
+      - git fetch --all
+      - git reset --hard origin/master
+      - hugo
   when:
     event: 
       - push
     branch: 
-      - master   
+      - master
+- name: discord_notif
+  image: appleboy/drone-discord
+  environment:
+    WEBHOOK_ID:
+      from_secret: discord_webhook_id
+    WEBHOOK_TOKEN:
+      from_secret: discord_webhook_token
+  settings:
+    username: Netsoc CI
+    avatar_url: https://noahsc.xyz/public_images/drone.png
+    color: "#42f483"
+    message: >
+      {{#success build.status}}
+        Netsoc Blog successfully built and pushed. Build num {{build.number}}.
+      {{else}}
+        Netsoc Blog failed to build. Build num {{build.number}}.
+      {{/success}}    
+  when:
+    event: 
+      - push
+    branch: 
+      - master          
