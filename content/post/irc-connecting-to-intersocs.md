@@ -4,6 +4,7 @@ date: 2018-11-30T16:49:50Z
 draft: false
 tags: ["tutorials"]
 author: Evan Smith
+image: defimg/6.jpg
 ---
 
 # IRC – Connecting To #Intersocs

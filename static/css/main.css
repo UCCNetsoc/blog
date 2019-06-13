@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+
+p {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.post-full-content pre {
+    background: #282C34;
+}
+
+pre > * {
+    font-family: 'Inconsolata', monospace;
+}

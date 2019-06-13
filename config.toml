@@ -15,7 +15,7 @@ paginate        = 6
   description = "UCC Netsoc Dev Blog"
   metaDescription = "UCC Netsoc Dev Blog"
   googleAnalytics = ""
-  customCSS = []
+  customCSS = ["css/main.css"]
   RSSLink = ""
   hjsStyle = "default"
 
