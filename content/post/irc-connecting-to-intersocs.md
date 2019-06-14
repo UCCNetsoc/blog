@@ -1,6 +1,6 @@
 ---
 title: "IRC - Connecting to Intersocs"
-date: 2018-11-30T16:49:50Z
+date: 2015-10-29
 draft: false
 tags: ["tutorials"]
 author: Evan Smith

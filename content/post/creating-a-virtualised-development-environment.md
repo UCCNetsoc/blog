@@ -1,10 +1,10 @@
 ---
 title: "Creating a Virtualised Development Environment"
-date: 2018-11-30T16:52:29Z
+date: 2015-05-29
 draft: false
 tags: ["tutorials"]
 author: Evan Smith
-image: defimg/5.jpg
+image: defimg/7.png
 ---
 
 # Creating A Virtualised Development Environment

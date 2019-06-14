@@ -1,6 +1,6 @@
 ---
 title: "Building Netsoc Admin 1 Part 1"
-date: 2018-12-01T15:43:59Z
+date: 2016-01-08
 draft: false
 tags: ["dev", "archive"]
 author: Evan Smith
@@ -105,7 +105,12 @@ Docker is a “container” manager. Containers are essentially a box that wrap 
 In the case of this project, we needed to be able to test with an LDAP server. For this, the best option was running the LDAP instance from a docker container so we weren’t messing with in-production systems and could fiddle and fool all we wanted. (Just a small note: I’m omitting the fact that I used a backup of our current LDAP database and mounted them as volumes to the following docker container. This was only necessary because we had data already and not working from a blank system). To startup our docker container, I used the following:
 
 ```nginx
-docker run -p 389:389 --name ldap_server -e LDAP_DOMAIN="netsoc.co" -e LDAP_ORGANISATION="UCC Netsoc" -e LDAP_ADMIN_PASSWORD="password" -d osixia/openldap
+docker run -p 389:389 \
+    --name ldap_server \
+    -e LDAP_DOMAIN="netsoc.co" \
+    -e LDAP_ORGANISATION="UCC Netsoc" \
+    -e LDAP_ADMIN_PASSWORD="password" \
+    -d osixia/openldap
 ```
 
 ### 3) Laravel

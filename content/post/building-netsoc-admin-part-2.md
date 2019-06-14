@@ -1,10 +1,10 @@
 ---
 title: "Building Netsoc Admin 1 Part 2"
-date: 2018-12-01T15:43:59Z
+date: 2016-01-15
 draft: false
 tags: ["dev", "archive"]
 author: Evan Smith
-image: defimg/4.jpg
+image: defimg/7.jpg
 ---
 
 # Building Netsoc Admin 1.0 (#2) – Models and Relationships
@@ -357,6 +357,8 @@ Every user in our application will have a one-to-many relationship with MySQL da
 
 As you can see from the diagram below, the user has a one-to-many relationship with the databases but the databases have a one-to-one relationship with the user. A user can have many databases but each database can only have one user.
 
+![User to database relationship](/post-images/nsa-old-1/user-dbrelation-2.png)
+
 Within the User model, we’ll add the following:
 
 ```php
@@ -379,3 +381,6 @@ Then we can get any databases’ user with `MySQLDatabase::find(1)->user`.
 
 User <–> MySQLUser
 Finally, the netsoc account user and the MySQL user have a one-to-one relationship both ways which make it much easier to understand. This is because we will be using one MySQLUser to give someone database access via management GUI (such as PHPMyAdmin). It allows us to limit their permissions and monitor access.
+
+![User to database relationship](/post-images/nsa-old-1/user-dbrelation-2.png)
+![User to database user relationship](/post-images/nsa-old-1/user-mysqluser.png)
