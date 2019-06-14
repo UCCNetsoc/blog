@@ -4,7 +4,7 @@ date: 2015-05-29
 draft: false
 tags: ["tutorials"]
 author: Evan Smith
-image: defimg/7.png
+image: defimg/vagrant.jpg
 ---
 
 # Creating A Virtualised Development Environment

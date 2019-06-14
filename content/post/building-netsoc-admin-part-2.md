@@ -4,7 +4,7 @@ date: 2016-01-15
 draft: false
 tags: ["dev", "archive"]
 author: Evan Smith
-image: defimg/7.jpg
+image: defimg/pen-papers.jpg
 ---
 
 # Building Netsoc Admin 1.0 (#2) – Models and Relationships

@@ -1,13 +1,13 @@
 ---
-title: "Building Netsoc Admin Part 3"
+title: "Building Netsoc Admin 1 Part 3"
 date: 2016-01-22
 draft: false
 tags: ["dev", "archive"]
 author: Evan Smith
-image: defimg/3.jpg
+image: defimg/circle-apartments.jpg
 ---
 
-# Building Netsoc Admin 1.0 (#3) – Models and Relationships
+# Building Netsoc Admin 1.0 (#3) – Layouts
 
 Laravel provides an implementation of the Blade templating engine which lets us define generic templates for our data and page layouts. What I’m going to cover in this post is some really basic templates which we’ll base the rest of our designs off. We’re going to need two different layouts: a default full-width layout and a default with sidebar layout. Breaking those down further, we’ll also need a template for the header, the footer and the sidebar itself. So, let’s get to it!
 

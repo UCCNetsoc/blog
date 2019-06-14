@@ -4,7 +4,7 @@ date: 2016-01-08
 draft: false
 tags: ["dev", "archive"]
 author: Evan Smith
-image: defimg/2.jpg
+image: defimg/tools.jpg
 ---
 
 # Building Netsoc Admin 1.0 (#1) – Development Tools

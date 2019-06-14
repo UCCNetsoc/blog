@@ -4,7 +4,7 @@ date: 2015-10-29
 draft: false
 tags: ["tutorials"]
 author: Evan Smith
-image: defimg/6.jpg
+image: defimg/color-glass.jpg
 ---
 
 # IRC – Connecting To #Intersocs
