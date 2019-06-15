@@ -11,7 +11,7 @@ image: defimg/containers.jpg
 
 Docker and Docker Compose are all the rage these days. People are coming up with all sorts of things to do with Docker, and local development environments are no exception.
 
-Taking a page out of the book from [Teamwork](https://teamwork.com) (where I did my placement), I decided to incorporate my spin on their style of docker-compose based development environments for Netsoc, and not just the committee but our members too. You can see the current progress [here](https://github.com/UCCNetworkingSociety/dev-env/). Do note that this is a very opnionated take on it, trading shorter commands, less file copying and more DRY docker-compose files for flexibility.
+Taking a page out of the book from [Teamwork](https://teamwork.com) (where I did my placement), I decided to incorporate my spin on their style of docker-compose based development environments for Netsoc, and not just the committee but our members too. You can see the current progress [here](https://github.com/UCCNetworkingSociety/dev-env/). Do note that this is a very opinionated take on it, trading shorter commands, less file copying and more DRY docker-compose files for some flexibility.
 
 ## Backing Services
 
