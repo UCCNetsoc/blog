@@ -39,6 +39,9 @@ copyright   = "© 2018 UCC Networking Society. All rights reserved. Theme is Cas
   #casper or caspertwo
   singleViewStyle = "casper"
 
+[blackfriday]
+  hrefTargetBlank = true
+
 [permalinks]
   post = "/:slug/"
 
