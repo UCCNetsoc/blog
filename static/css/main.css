@@ -12,3 +12,9 @@ p, li {
 pre > * {
     font-family: 'Inconsolata', monospace;
 }
+
+.site-logo {
+    max-height: initial;
+    width: 30%;
+    height: auto;
+}
