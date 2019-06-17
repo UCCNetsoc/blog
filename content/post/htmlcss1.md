@@ -17,11 +17,11 @@ The two languages—HTML and CSS—are independent of one another and should rem
 
 With this understanding of the difference between HTML and CSS, let’s dive into HTML in more detail.
 
-# Understanding Common HTML Terms
+## Understanding Common HTML Terms
 
 While getting started with HTML, you will likely encounter new—and often strange—terms. Over time you will become more and more familiar with all of them, but the three common HTML terms you should begin with are elements, tags, and attributes.
 
-## Elements
+### Elements
 
 Elements are designators that define the structure and content of objects within a page. Some of the more frequently used elements include multiple levels of headings \(identified as \<h1\> through \<h6\> elements\) and paragraphs \(identified as the \<p\> element\); the list goes on to include the \<a\>, \<div\>, \<span\>, \<strong\>, and \<em\> elements, and many more.
 
@@ -31,7 +31,7 @@ Elements are identified by the use of less-than and greater-than angle brackets,
 <a>
 ```
 
-## Tags
+### Tags
 
 The use of less-than and greater-than angle brackets surrounding an element creates what is known as a tag. Tags most commonly occur in pairs of opening and closing tags.
 
@@ -47,7 +47,7 @@ So, anchor tags will look a bit like this:
 <a> Our link's text </a>
 ```
 
-## Attributes
+### Attributes
 
 Attributes are properties used to provide additional information about an element. The most common attributes include the `id` attribute, which identifies an element; the `class` attribute, which classifies an element; the `src` attribute, which specifies a source for embeddable content; and the `href` attribute, which provides a hyperlink reference to a linked resource.
 
@@ -57,7 +57,7 @@ Attributes are defined within the opening tag, after an element’s name. Genera
 <a href="http://netsoc.co/"> UCC Netsoc </a>
 ```
 
-# Setting Up the HTML Document Structure
+## Setting Up the HTML Document Structure
 
 HTML documents are plain text documents saved with an .html file extension rather than a .txt file extension. To begin writing HTML, you first need a plain text editor that you are comfortable using. Sadly this does not include Microsoft Word or Pages, as those are rich text editors. Two of the more popular plain text editors for writing HTML and CSS are Dreamweaver and Sublime Text. Free alternatives also include Notepad++ for Windows and TextWrangler for Mac.
 

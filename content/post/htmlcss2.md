@@ -25,7 +25,7 @@ p {
 }
 ```
 
-# Properties
+## Properties
 
 Once an element is selected, a property determines the styles that will be applied to that element. Property names fall after a selector, within the curly brackets, `{}`, and immediately preceding a colon, `:`. There are numerous properties we can use, such as `background`, `color`, `font-size`, `height`, and `width`, and new properties are often added. In the following code, we are defining the color and font-size properties to be applied to all `<p>` elements.
 
@@ -36,7 +36,7 @@ p {
 }
 ```
 
-# Values
+## Values
 
 So far we’ve selected an element with a selector and determined what style we’d like to apply with a property. Now we can determine the behavior of that property with a value. Values can be identified as the text between the colon, `:`, and semicolon, `;`. Here we are selecting all `<p>` elements and setting the value of the color property to be `orange` and the value of the `font-size` property to be `16` pixels.
 
@@ -52,11 +52,11 @@ To review, in CSS our rule set begins with the selector, which is immediately fo
 It is a common practice to indent property and value pairs within the curly brackets. As with HTML, these indentations help keep our code organized and legible.
 
 
-# Working with Selectors
+## Working with Selectors
 
 Selectors, as previously mentioned, indicate which HTML elements are being styled. It is important to fully understand how to use selectors and how they can be leveraged. The first step is to become familiar with the different types of selectors. We’ll start with the most common selectors: type, class, and ID selectors.
 
-## Type Selectors
+### Type Selectors
 
 Type selectors target elements by their element type. For example, should we wish to target all division elements, `<div>`, we would use a type selector of `div`. The following code shows a type selector for division elements as well as the corresponding HTML it selects.
 
@@ -68,7 +68,7 @@ div { ... }
 <div>...</div>
 ```
 
-## Class Selectors
+### Class Selectors
 
 Class selectors allow us to select an element based on the element’s `class` attribute value. Class selectors are a little more specific than type selectors, as they select a particular group of elements rather than all elements of one type.
 
@@ -84,7 +84,7 @@ Within CSS, classes are denoted by a leading period, ., followed by the class at
 <p class="awesome">...</p>
 ```
 
-# ID Selectors
+## ID Selectors
 
 ID selectors are even more precise than class selectors, as they target only one unique element at a time. Just as class selectors use an element’s `class` attribute value as the selector, `ID` selectors use an element’s id attribute value as a selector.
 
@@ -99,7 +99,7 @@ Within CSS, ID selectors are denoted by a leading hash sign, `#`, followed by th
 <div id="uccnetsoc">...</div>
 ```
 
-# Referencing CSS
+## Referencing CSS
 
 In order to get our CSS talking to our HTML, we need to reference our CSS file within our HTML. The best practice for referencing our CSS is to include all of our styles in a single external style sheet, which is referenced from within the `<head>` element of our HTML document. Using a single external style sheet allows us to use the same styles across an entire website and quickly make changes sitewide.
 
@@ -121,7 +121,7 @@ If our CSS file is within a subdirectory or subfolder, the href attribute value 
 
 At this point our pages are starting to come to life, slowly but surely. We haven’t delved into CSS too much, but you may have noticed that some elements have default styles we haven’t declared within our CSS. That is the browser imposing its own preferred CSS styles for those elements. Fortunately we can overwrite these styles fairly easily, which is what we’ll do next using CSS resets.
 
-# Using CSS Resets
+## Using CSS Resets
 
 Every web browser has its own default styles for different elements. How Google Chrome renders headings, paragraphs, lists, and so forth may be different from how Internet Explorer does. To ensure cross-browser compatibility, CSS resets have become widely used.
 

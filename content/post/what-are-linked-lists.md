@@ -9,7 +9,7 @@ image: defimg/linkedlists.png
 
 # What are Linked Lists
 
-# What is a linked list?
+## What is a linked list?
 A linked list is a *linear* data structure where each element is a separate object. Each element is called a **node** and has two main items: its data and a tail \(i.e. a reference to the next node\). So a list will go from tail to tail until, eventually, we reach a null value and know we’ve reached the end.
 
 A linked list is a dynamic data structure. The number of nodes in a list is not fixed and can grow and shrink on demand. Any application which has to deal with an unknown number of objects will need to use a linked list.
@@ -18,7 +18,7 @@ One disadvantage of a linked list against an array is that it does not allow dir
 
 ![dev-env image](/post-images/linked-lists/linkedlists.webp)
 
-# Types Of Linked List
+## Types Of Linked List
 
 There are mainly \(although not only\) two different types of linked list
 

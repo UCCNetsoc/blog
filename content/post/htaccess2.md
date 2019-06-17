@@ -13,7 +13,7 @@ image: defimg/htaccess2.png
 
 When people think of .htaccess configuration, the first thing that might pop into their minds is URL manipulation with mod_rewrite. But they’re often frustrated by mod_rewrite’s complexity. This tutorial will walk you through everything you need to know for the most common mod_rewrite tasks.
 
-# What is mod_rewrite
+## What is mod_rewrite
 
 mod_rewrite is an Apache module that allows for server-side manipulation of requested URLs. Incoming URLs are checked against a series of rules. The rules contain a regular expression to detect a particular pattern. If the pattern is found in the URL, and the proper conditions are met, the pattern is replaced with a provided substitution string or action. This process continues until there are no more rules left or the process is explicitly told to stop.
 
@@ -23,7 +23,7 @@ This is summarized in these three points:
 * If a rule matches, it checks the conditions for that rule.
 * If everything is a go, it makes a substitution or action.
 
-# Enabling mod_rewrite
+## Enabling mod_rewrite
 
 Enabling mod_rewrite is easy. For the purposes of this tutorial I’m only going to talk about linux \(specifically ubuntu\) because it’s the most common use case for an apache server. So in order to enable mod_rewrite, you can simply log into the server as an administrator and issue the following command:
 
@@ -42,19 +42,19 @@ As always, anything that you can put in a .htaccess file can also be placed insi
 
 This is something to keep in mind if you see examples online or if you’re trying an example yourself: beware of the leading slash. I will attempt to clarify this below when we work through some examples together.
 
-# Regular Expressions
+## Regular Expressions
 
 This tutorial does not intend to teach you regular expressions. For those of you who are familiar with them, the regular expressions used in mod_rewrite seem to vary between versions of Apache. In Apache 2.0 they’re [Perl Compatible Regular Expressions (PCRE)](http://perldoc.perl.org/perlre.html). This means that many of the shortcuts you are used to, such as \w referring to [A-Za-z0-9_], \d referring to [0-9], and much more do exist. However, my particular hosting company uses Apache 1.3 and the regular expressions are more limited.
 
 [Here’s a good tutorial on learning regular expressions](http://regexone.com/) as we’re not going to deal with them in this tutorial.
 
-# Syntax
+## Syntax
 
 ![syntax_rewriterule](/post-images/htaccess/syntax_rewriterule.webp)
 
 ![syntax_rewritecond](/post-images/htaccess/syntax_rewritecond.webp)
 
-# Remove Hotlinking
+## Remove Hotlinking
 
 Hotlinking, referred to as Inline Linking on Wikipedia, is the term used to describe one site leeching off of another site. Usually one site – the Leecher – will include a link to some media file \(let’s say an image or video\) that is hosted on another site, the Content Host. In this scenario, the Content Host’s servers are wasting bandwidth serving content to some other website.
 
@@ -72,7 +72,7 @@ Above, the RewriteRule is checking for the request of a file with any popular im
 
 The domains which are allowed to access this content are “example.net” and “example.com”. In either of these two instances, a Rewrite Conditions will fail and the substitution won’t occur. If any other domain makes an attempt, however – let’s say “sample.com” – then all the Rewrite Conditions will pass, the substitution will happen, and the [F] forbidden action will trigger.
 
-# Give warning image
+## Give warning image
 
 The previous example returns a 404 Forbidden warning when someone attempts to hotlink content from your server. You can actually go one step further, and send the hotlinker any resource of your choice! For instance, you can return a warning image with text stating, “hotlinking is not allowed”. This way, the abuser will realize their mistake and host a copy on their own server. The only required change is to follow through with the rewrite substitution, and provide your chosen image instead of the one being requested:
 
@@ -85,7 +85,7 @@ RewriteRule \.(gif|jpe?g|png|bmp)$ http://example.com/warning.png [R,NC]
 ```
 
  
-# Custom 404 Page
+## Custom 404 Page
 
 One neat trick that you can do with htaccess is to determine if the current “URL Part” leads to an actual file or directory on the web server. This is an excellent way to create a custom 404 “File not Found” page. For example, if a user tries to fetch a page in a particular directory that doesn’t exist, you can redirect him to any page you wish, such as the index page or a custom 404 page.
 
@@ -103,7 +103,7 @@ RewriteRule .* custom_404.html [L]
 
 If the incoming request filename can’t be found, then this script loads a “custom404.html” page. Note that there is no [R] flag – this is a silent redirect, not a hard redirect. The user’s Location Bar will not change, but the contents of the page will be “custom404.html”.
 
-# IfModule condition
+## IfModule condition
 
 If you have various mod_rewrite snippets that you want to easily distribute to other servers or environments, you might want to be careful. Any invalid directive in a .htaccess file will likely trigger an internal server error. So, if an environment you move the snippet to doesn’t support mod_rewrite, you could temporarily break it.
 
