@@ -7,6 +7,8 @@ author: Evan Smith
 image: defimg/htmlcss2.webp
 ---
 
+# HTML & CSS 2 - CSS
+
 In addition to HTML terms, there are a few common CSS terms you will want to familiarize yourself with. These terms include selectors, properties, and values. As with the HTML terminology, the more you work with CSS, the more these terms will become second nature.
 
 # Selectors

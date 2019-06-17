@@ -7,6 +7,8 @@ author: Evan Smith
 image: defimg/whatisvirtualisation.png
 ---
 
+# What is Virtualisation?
+
 The main goal of virtualization is to manage workloads by radically transforming traditional computing to make it more scalable. Virtualization has been a part of the IT landscape for decades now, and today it can be applied to a wide range of system layers, including operating system-level virtualization, hardware-level virtualization and server virtualization.
 
 The most common form of virtualization is the operating system-level virtualization. In operating system-level virtualization, it is possible to run multiple operating systems on a single piece of hardware. Virtualization technology involves separating the physical hardware and software by emulating hardware using software. When a different OS is operating on top of the primary OS by means of virtualization, it is referred to as a virtual machine.

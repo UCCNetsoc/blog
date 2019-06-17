@@ -1,11 +1,13 @@
 ---
-title: "What are Linked Lists"
+title: "What are Linked Lists?"
 date: 2015-09-07
 draft: false
 tags: ["tutorials", "beginner"]
 author: Evan Smith
 image: defimg/linkedlists.png
 ---
+
+# What are Linked Lists
 
 # What is a linked list?
 A linked list is a *linear* data structure where each element is a separate object. Each element is called a **node** and has two main items: its data and a tail \(i.e. a reference to the next node\). So a list will go from tail to tail until, eventually, we reach a null value and know we’ve reached the end.

@@ -7,6 +7,8 @@ author: Evan Smith
 image: defimg/htaccess2.png
 ---
 
+# .htaccess 2 - rewrite
+
 # mod_rewrite is a pain in the ass
 
 When people think of .htaccess configuration, the first thing that might pop into their minds is URL manipulation with mod_rewrite. But they’re often frustrated by mod_rewrite’s complexity. This tutorial will walk you through everything you need to know for the most common mod_rewrite tasks.

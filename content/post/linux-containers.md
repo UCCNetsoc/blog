@@ -7,6 +7,8 @@ author: Evan Smith
 image: defimg/linuxcontainers.png
 ---
 
+# Linux Containers
+
 Both full machine virtualization and containers have their advantages and disadvantages. Full machine virtualization offers greater isolation at the cost of greater overhead, as each virtual machine runs its own full kernel and operating system instance. Containers, on the other hand, generally offer less isolation but lower overhead through sharing certain portions of the host kernel and operating system instance. In my opinion full machine virtualization and containers are complementary; each offers certain advantages that might be useful in specific situations.
 
 Now that you have a rough idea of what containers are, let’s take a closer look at using containers with LXC. I’m using Ubuntu 12.04.3 LTS for my testing; if you’re using something different, keep in mind that certain commands may differ from what I show you here.

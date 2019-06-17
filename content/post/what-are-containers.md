@@ -7,6 +7,8 @@ author: Evan Smith
 image: defimg/whatarecontainers.png
 ---
 
+# What are containers?
+
 Linux-based container infrastructure is an emerging cloud technology based on fast and lightweight process virtualization. It provides its users an environment as close as possible to a standard Linux distribution. As opposed to para-virtualization solutions \(Xen\) and hardware virtualization solutions \(KVM\), which provide virtual machines \(VMs\), containers do not create other instances of the operating system kernel. Due to the fact that containers are more lightweight than VMs, you can achieve higher densities with containers than with VMs on the same host \(practically speaking, you can deploy more instances of containers than of VMs on the same host\).
 
 Another advantage of containers over VMs is that starting and shutting down a container is much faster than starting and shutting down a VM. All containers under a host are running under the same kernel, as opposed to virtualization solutions like Xen or KVM where each VM runs its own kernel. Sometimes the constraint of running under the same kernel in all containers under a given host can be considered a drawback. Moreover, you cannot run BSD, Solaris, OS/x or Windows in a Linux-based container, and sometimes this fact also can be considered a drawback.
