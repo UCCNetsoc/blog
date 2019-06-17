@@ -9,7 +9,7 @@ image: defimg/htaccess.webp
 
 # .htaccess - What is it?
 
-# What is Apache?
+## What is Apache?
 
 Apache is an open-source, widely-used web server. Although mostly cross-platform, Apache and Linux are generally the combination that’s used most. [According to this website I googled, apache accounts for 56.8% of all websites whose web server we know.](http://w3techs.com/technologies/details/ws-apache/all/all)
 
