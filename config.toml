@@ -1,5 +1,5 @@
 
-baseurl         = "/"
+baseurl         = "https://blog.netsoc.co"
 theme           = "hugo-casper-two"
 languageCode    = "en-US"
 disqusShortname = ""
