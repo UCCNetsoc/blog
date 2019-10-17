@@ -1,27 +1,54 @@
 kind: pipeline
 name: default
 
+volumes:
+- name: cache
+  temp: {}
+
 steps:
-- name: deploy
-  image: appleboy/drone-ssh
+- name: build_prod
+  image: plugins/docker
   settings:
-    host: wiki.netsoc.co
+    tag: latest
+    repo: docker.netsoc.co/netsoc/blog.netsoc.co
+    registry: docker.netsoc.co
     username:
-      from_secret: ssh_username
+      from_secret: docker_prod_username
     password:
-      from_secret: ssh_password
-    port: 22
-    script:
-      - cd /var/www/blog.netsoc.co
-      - git fetch --all
-      - git reset --hard origin/master
-      - hugo
+      from_secret: docker_prod_auth
+    build_args:
+      - VIRTUAL_HOST=${https://blog.netsoc.co}
+  volumes:
+  - name: cache
+    path: /var/lib/docker  
   when:
     event: 
       - push
     branch: 
-      - master
-- name: discord_notif
+      - master   
+
+- name: build_dev
+  image: plugins/docker
+  settings:
+    tag: latest
+    repo: docker.netsoc.co/public/blog.netsoc.co
+    registry: docker.netsoc.co
+    username:
+      from_secret: docker_dev_username
+    password:
+      from_secret: docker_dev_auth
+    build_args:
+      - VIRTUAL_HOST=${https://blog.netsoc.local}
+  volumes:
+  - name: cache
+    path: /var/lib/docker  
+  when:
+    event: 
+      - push
+    branch: 
+      - master   
+
+- name: discord_notif_success
   image: appleboy/drone-discord
   environment:
     WEBHOOK_ID:
@@ -30,14 +57,9 @@ steps:
       from_secret: discord_webhook_token
   settings:
     username: Netsoc CI
-    avatar_url: https://noahsc.xyz/public_images/drone.png
+    avatar_url: https://raw.githubusercontent.com/drone/brand/3051b0d85318a2a20b62927ba19fc07e24c0d751/logos/png/white/drone-logo-png-white-256.png
     color: "#42f483"
-    message: >
-      {{#success build.status}}
-        Netsoc Blog successfully built and pushed. Build num {{build.number}}.
-      {{else}}
-        Netsoc Blog failed to build. Build num {{build.number}}.
-      {{/success}}    
+    message: Netsoc Blog successfully built and pushed. Build num {{build.number}}. {{build.link}}
   when:
     event: 
       - push
@@ -45,4 +67,23 @@ steps:
       - master 
     status:
       - success
-      - failure       
+
+- name: discord_notif_failure
+  image: appleboy/drone-discord
+  environment:
+    WEBHOOK_ID:
+      from_secret: discord_webhook_id
+    WEBHOOK_TOKEN:
+      from_secret: discord_webhook_token
+  settings:
+    username: Netsoc CI
+    avatar_url: https://raw.githubusercontent.com/drone/brand/3051b0d85318a2a20b62927ba19fc07e24c0d751/logos/png/white/drone-logo-png-white-256.png
+    color: "#e04414"
+    message: Netsoc Blog failed for {{build.author}}. Build num {{build.number}}. {{build.link}}
+  when:
+    event: 
+      - push
+    branch: 
+      - master 
+    status:
+      - failure  
