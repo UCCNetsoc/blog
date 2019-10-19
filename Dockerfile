@@ -5,4 +5,4 @@ COPY . /
 ENV BASE_URL="http://blog.netsoc.co:80"
 
 WORKDIR /
-CMD hugo server --bind=0.0.0.0 --baseURL="$BASE_URL" --watch=false --appendPort=false --environment production --port 80
+CMD hugo server --bind=0.0.0.0 --baseURL="$BASE_URL" --watch=false --minify --appendPort=false --environment production --port 80
