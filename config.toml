@@ -6,7 +6,7 @@ disqusShortname = ""
 paginate        = 10
 #SectionPagesMenu = "main"
 title       = "Blog | UCC Netsoc"
-subtitle    = "The gears and cogs behind UCC Netsoc revealed. Updated from time to time with posts about how we develop and manage the society and it's services"
+subtitle    = "The gears and cogs behind UCC Netsoc revealed. Updated from time to time with posts about how we develop the society and it's services"
 copyright   = "© 2020 UCC Networking Society. All rights reserved. Theme is Casper, Website Created by Michael Forde"
 
 [params]
