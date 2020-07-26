@@ -5,9 +5,9 @@ languageCode    = "en-US"
 disqusShortname = ""
 paginate        = 10
 #SectionPagesMenu = "main"
-title       = "Netsoc Dev Blog"
-subtitle    = "UCC Networking and Technology Society"
-copyright   = "© 2018 UCC Networking Society. All rights reserved. Theme is Casper, Website Created by Michael Forde"
+title       = "Blog | UCC Netsoc"
+subtitle    = "The gears and cogs behind UCC Netsoc revealed. Updated from time to time with posts about how we develop and manage our services"
+copyright   = "© 2020 UCC Networking Society. All rights reserved. Theme is Casper, Website Created by Michael Forde"
 
 [params]
 
