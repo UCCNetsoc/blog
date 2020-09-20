@@ -9,16 +9,19 @@ steps:
 - name: build
   image: plugins/docker
   settings:
-    tag: latest
-    repo: docker.netsoc.co/public/blog.netsoc.co
-    registry: docker.netsoc.co
+    tags:
+      - latest
+      - "${DRONE_COMMIT_SHA:0:7}"
+    repo: uccnetsoc/discord-bot
+    registry: docker.io
+    custom_dns: [1.1.1.1]
     username:
-      from_secret: docker_dev_username
+      from_secret: docker_hub_user
     password:
-      from_secret: docker_dev_auth
+      from_secret: docker_hub_token
   volumes:
   - name: cache
-    path: /var/lib/docker  
+    path: /var/lib/docker
   when:
     event: 
       - push
@@ -64,3 +67,23 @@ steps:
       - master 
     status:
       - failure  
+---
+kind: secret
+name: docker_hub_user
+get:
+  path: docker_registry/docker_hub
+  name: docker_hub_user
+
+---
+kind: secret
+name: docker_hub_token
+get:
+  path: docker_registry/docker_hub
+  name: docker_hub_token
+
+---
+kind: secret
+name: github_token
+get:
+  path: github/personal_access_tokens
+  name: public_repo_token
