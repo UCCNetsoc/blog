@@ -26,3 +26,5 @@ hugo server
 ```
 
 and go to http://localhost:1313
+
+## Or pull from uccnetsoc/blog
