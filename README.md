@@ -1,4 +1,4 @@
-# blog.netsoc.co
+<img src="https://github.com/UCCNetsoc/wiki/raw/master/assets/logo-service-blog.svg" width="360"/>
 
 a new blog website for netsoc made with Hugo
 
